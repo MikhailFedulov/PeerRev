@@ -19,7 +19,7 @@ class CreateTask extends Component {
             taskTitle: "",
             taskBody: "",
             taskcontent: "",
-            createdAt: "",
+            createdAt: ""
 
         }
 
@@ -66,7 +66,7 @@ class CreateTask extends Component {
              return (
                  <Paper className="courses" variant="outlined" elevation={2}>
                    <Typography variant="h6" gutterBottom>
-                     Create Course
+                     Create Task
                    </Typography>
                  <form className="add-post" onSubmit={this.handleAddTask}>
 

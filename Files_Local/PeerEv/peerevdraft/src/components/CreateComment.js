@@ -10,8 +10,7 @@ class CreateComment extends Component {
     state = {
          qOwnerId: "",
          qOwnerUsername: "",
-         qTitle: "",
-         qBody: ""
+         qTitle: ""
     }
 
     componentDidMount = async () => {
@@ -24,22 +23,20 @@ class CreateComment extends Component {
           })
     }
 
-    handleChangeContentT = event => this.setState({ qTitle : event.target.value })
-    handleChangeContentB = event => this.setState({ qBody : event.target.value })
+    handleChangeContent = event => this.setState({ qTitle: event.target.value})
     handleAddQuestion = async event => {
           event.preventDefault()
 
           const input = {
-               qTaskId: this.props.taskId,
+               qPostId: this.props.taskId,
                qOwnerId: this.state.qOwnerId,
                qOwnerUsername: this.state.qOwnerUsername,
                qTitle: this.state.qTitle,
-               qBody: this.state.qBody,
                createdAt: new Date().toISOString()
           }
           await API.graphql(graphqlOperation(createQuestion, { input }))
 
-          this.setState({ qTitle: "", qBody: ""}) // clear field
+          this.setState({ qTitle: ""}) // clear field
     }
 
     render() {
@@ -50,31 +47,21 @@ class CreateComment extends Component {
               <form className="add-comment"
                 onSubmit={this.handleAddQuestion}>
 
-                <textarea
-                  type="text"
-                   name="content"
-                   rows="3"
-                   cols="40"
-                   required
-                   placeholder="Add Question Title."
-                   value= {this.state.qTitle}
-                   onChange={this.handleChangeContentT}/>
-
                   <textarea
                     type="text"
                      name="content"
                      rows="3"
                      cols="40"
                      required
-                     placeholder="Add Question describtion"
-                     value= {this.state.qBody}
-                     onChange={this.handleChangeContentB}/>
+                     placeholder="Add Question"
+                     value= {this.state.qTitle}
+                     onChange={this.handleChangeContent}/>
 
                      <input
                       className="btn"
                       type="submit"
                       style={{ fontSize: '19px'}}
-                      value="Add Comment"/>
+                      value="Add Question"/>
 
             </form>
             </div>

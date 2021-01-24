@@ -19,6 +19,7 @@ import TableRow from '@material-ui/core/TableRow';
 import { Link as RouterLink } from 'react-router-dom';
 import TaskLayout from './TaskLayout'
 import CreateComment from './CreateComment'
+import CourseDash from './CourseDash'
 import CommentPost from './CommentPost'
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -48,26 +49,12 @@ componentDidMount = async () => {
                  }
              })
 
-             this.createPostCommentListener = API.graphql(graphqlOperation(onCreateQuestion))
-              .subscribe({
-                   next: questionData => {
-                        const createdQuestion = questionData.value.data.onCreateQuestion
-                        let tasks = [ ...this.state.tasks]
 
-                        for (let task of tasks ) {
-                             if ( createdQuestion.task.id === task.id) {
-                                  task.questions.items.push(createdQuestion)
-                             }
-                        }
-                        this.setState({ tasks })
-                   }
-              })
 
 }
 
 componentWillUnmount() {
     this.createTaskListener.unsubscribe()
-    this.createPostCommentListener.unsubscribe()
 }
 
 getTasks = async () => {
@@ -79,6 +66,7 @@ getTasks = async () => {
 
 
     render() {
+
         const { tasks } = this.state
 
         return tasks.map(( task ) => {
@@ -86,6 +74,8 @@ getTasks = async () => {
             return (
 
                 <div>
+                <CourseDash />
+
                 <Paper className="tasks" variant="outlined" elevation={2}>
 
                 <Table striped bordered hover key={task.id}>
@@ -111,11 +101,11 @@ getTasks = async () => {
                 </Table>
                 <span>
                         <CreateComment TaskId={task.id} />
-                        { task.question.items.length > 0 && <span style={{fontSize:"19px", color:"gray"}}>
-                             Questions: </span>}
+                        { task.questions.items.length > 0 && <span style={{fontSize:"19px", color:"gray"}}>
+                         Comments: </span>}
                              {
-                                  task.question.items.map((question , index) => <CommentPost key={index} questionData={question}/>)
-                             }
+                                  task.questions.items.map((question, index) => <CommentPost key={index} questionData={question}/>)
+                         }
                     </span>
                 </Paper>
 

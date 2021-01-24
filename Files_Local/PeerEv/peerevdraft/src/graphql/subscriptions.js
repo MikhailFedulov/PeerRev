@@ -13,33 +13,6 @@ export const onCreateCourse = /* GraphQL */ `
       courseEnd
       caponnumberofcollaborators
       createdAt
-      hastask {
-        id
-        taskOwnerId
-        taskOwnerUsername
-        taskTitle
-        taskBody
-        taskcontent
-        numberofQuestions
-        course {
-          id
-          courseOwnerId
-          courseOwnerUsername
-          courseTitle
-          courseBody
-          courseStart
-          courseEnd
-          caponnumberofcollaborators
-          createdAt
-          numberofstudents
-          updatedAt
-        }
-        question {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
       numberofstudents
       groups {
         items {
@@ -69,33 +42,6 @@ export const onUpdateCourse = /* GraphQL */ `
       courseEnd
       caponnumberofcollaborators
       createdAt
-      hastask {
-        id
-        taskOwnerId
-        taskOwnerUsername
-        taskTitle
-        taskBody
-        taskcontent
-        numberofQuestions
-        course {
-          id
-          courseOwnerId
-          courseOwnerUsername
-          courseTitle
-          courseBody
-          courseStart
-          courseEnd
-          caponnumberofcollaborators
-          createdAt
-          numberofstudents
-          updatedAt
-        }
-        question {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
       numberofstudents
       groups {
         items {
@@ -125,33 +71,6 @@ export const onDeleteCourse = /* GraphQL */ `
       courseEnd
       caponnumberofcollaborators
       createdAt
-      hastask {
-        id
-        taskOwnerId
-        taskOwnerUsername
-        taskTitle
-        taskBody
-        taskcontent
-        numberofQuestions
-        course {
-          id
-          courseOwnerId
-          courseOwnerUsername
-          courseTitle
-          courseBody
-          courseStart
-          courseEnd
-          caponnumberofcollaborators
-          createdAt
-          numberofstudents
-          updatedAt
-        }
-        question {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
       numberofstudents
       groups {
         items {
@@ -179,40 +98,12 @@ export const onCreateTask = /* GraphQL */ `
       taskBody
       taskcontent
       numberofQuestions
-      course {
-        id
-        courseOwnerId
-        courseOwnerUsername
-        courseTitle
-        courseBody
-        courseStart
-        courseEnd
-        caponnumberofcollaborators
-        createdAt
-        hastask {
-          id
-          taskOwnerId
-          taskOwnerUsername
-          taskTitle
-          taskBody
-          taskcontent
-          numberofQuestions
-          createdAt
-          updatedAt
-        }
-        numberofstudents
-        groups {
-          nextToken
-        }
-        updatedAt
-      }
-      question {
+      questions {
         items {
           id
           qOwnerId
           qOwnerUsername
           qTitle
-          qBody
           createdAt
           updatedAt
         }
@@ -233,40 +124,12 @@ export const onUpdateTask = /* GraphQL */ `
       taskBody
       taskcontent
       numberofQuestions
-      course {
-        id
-        courseOwnerId
-        courseOwnerUsername
-        courseTitle
-        courseBody
-        courseStart
-        courseEnd
-        caponnumberofcollaborators
-        createdAt
-        hastask {
-          id
-          taskOwnerId
-          taskOwnerUsername
-          taskTitle
-          taskBody
-          taskcontent
-          numberofQuestions
-          createdAt
-          updatedAt
-        }
-        numberofstudents
-        groups {
-          nextToken
-        }
-        updatedAt
-      }
-      question {
+      questions {
         items {
           id
           qOwnerId
           qOwnerUsername
           qTitle
-          qBody
           createdAt
           updatedAt
         }
@@ -287,40 +150,12 @@ export const onDeleteTask = /* GraphQL */ `
       taskBody
       taskcontent
       numberofQuestions
-      course {
-        id
-        courseOwnerId
-        courseOwnerUsername
-        courseTitle
-        courseBody
-        courseStart
-        courseEnd
-        caponnumberofcollaborators
-        createdAt
-        hastask {
-          id
-          taskOwnerId
-          taskOwnerUsername
-          taskTitle
-          taskBody
-          taskcontent
-          numberofQuestions
-          createdAt
-          updatedAt
-        }
-        numberofstudents
-        groups {
-          nextToken
-        }
-        updatedAt
-      }
-      question {
+      questions {
         items {
           id
           qOwnerId
           qOwnerUsername
           qTitle
-          qBody
           createdAt
           updatedAt
         }
@@ -338,7 +173,6 @@ export const onCreateQuestion = /* GraphQL */ `
       qOwnerId
       qOwnerUsername
       qTitle
-      qBody
       task {
         id
         taskOwnerId
@@ -347,20 +181,7 @@ export const onCreateQuestion = /* GraphQL */ `
         taskBody
         taskcontent
         numberofQuestions
-        course {
-          id
-          courseOwnerId
-          courseOwnerUsername
-          courseTitle
-          courseBody
-          courseStart
-          courseEnd
-          caponnumberofcollaborators
-          createdAt
-          numberofstudents
-          updatedAt
-        }
-        question {
+        questions {
           nextToken
         }
         createdAt
@@ -378,7 +199,6 @@ export const onUpdateQuestion = /* GraphQL */ `
       qOwnerId
       qOwnerUsername
       qTitle
-      qBody
       task {
         id
         taskOwnerId
@@ -387,20 +207,7 @@ export const onUpdateQuestion = /* GraphQL */ `
         taskBody
         taskcontent
         numberofQuestions
-        course {
-          id
-          courseOwnerId
-          courseOwnerUsername
-          courseTitle
-          courseBody
-          courseStart
-          courseEnd
-          caponnumberofcollaborators
-          createdAt
-          numberofstudents
-          updatedAt
-        }
-        question {
+        questions {
           nextToken
         }
         createdAt
@@ -418,7 +225,6 @@ export const onDeleteQuestion = /* GraphQL */ `
       qOwnerId
       qOwnerUsername
       qTitle
-      qBody
       task {
         id
         taskOwnerId
@@ -427,20 +233,7 @@ export const onDeleteQuestion = /* GraphQL */ `
         taskBody
         taskcontent
         numberofQuestions
-        course {
-          id
-          courseOwnerId
-          courseOwnerUsername
-          courseTitle
-          courseBody
-          courseStart
-          courseEnd
-          caponnumberofcollaborators
-          createdAt
-          numberofstudents
-          updatedAt
-        }
-        question {
+        questions {
           nextToken
         }
         createdAt
@@ -469,17 +262,6 @@ export const onCreateGroups = /* GraphQL */ `
         courseEnd
         caponnumberofcollaborators
         createdAt
-        hastask {
-          id
-          taskOwnerId
-          taskOwnerUsername
-          taskTitle
-          taskBody
-          taskcontent
-          numberofQuestions
-          createdAt
-          updatedAt
-        }
         numberofstudents
         groups {
           nextToken
@@ -509,17 +291,6 @@ export const onUpdateGroups = /* GraphQL */ `
         courseEnd
         caponnumberofcollaborators
         createdAt
-        hastask {
-          id
-          taskOwnerId
-          taskOwnerUsername
-          taskTitle
-          taskBody
-          taskcontent
-          numberofQuestions
-          createdAt
-          updatedAt
-        }
         numberofstudents
         groups {
           nextToken
@@ -549,17 +320,6 @@ export const onDeleteGroups = /* GraphQL */ `
         courseEnd
         caponnumberofcollaborators
         createdAt
-        hastask {
-          id
-          taskOwnerId
-          taskOwnerUsername
-          taskTitle
-          taskBody
-          taskcontent
-          numberofQuestions
-          createdAt
-          updatedAt
-        }
         numberofstudents
         groups {
           nextToken

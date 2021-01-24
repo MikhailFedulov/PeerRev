@@ -15,6 +15,7 @@ import Checkout from './components/Checkout'
 import CreateTask from './components/CreateTask'
 import CreateComment from './components/CreateComment'
 import CommentPost from './components/CommentPost'
+import CourseDash from './components/CourseDash'
 
 import CourseLayouttest from './components/CourseLayouttest'
 
@@ -37,6 +38,7 @@ function App() {
             <Route path={"/CommentPost"} component={CommentPost} />
             <Route path={"/CreateComment"} component={CreateComment} />
             <Route path={"/CourseLayouttest"} component={CourseLayouttest} />
+            <Route path={"/CourseDash"} component={CourseDash} />
         </Switch>
 
     </Router>

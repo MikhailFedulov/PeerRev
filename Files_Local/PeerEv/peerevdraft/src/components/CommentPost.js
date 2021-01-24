@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
+import { Auth, API, graphqlOperation } from 'aws-amplify'
+import DisplayTasks from './DisplayTasks'
 
 class CommentPost extends Component {
 
 
+
     render() {
-        const { qTitle, qBody, qOwnerId, createdAt} = this.props.questionData
-        console.log(this.props.questionData)
+        const { qTitle, qOwnerUsername, createdAt} = this.props.questionData
+
          return (
                 <div className="comment">
                     <span style={{ fontStyle: "italic", color: "#0ca5e297"}}>
-                        {"Commment by: " } { qOwnerId}
+                        {"Commment by: " } { qOwnerUsername}
                         {" on "}
                         <time style={{ fontStyle: "italic"}}>
                             { " "}
@@ -18,7 +21,6 @@ class CommentPost extends Component {
                         </time>
                     </span>
                     <p> { qTitle }</p>
-                    <p> { qBody }</p>
 
                 </div>
          )

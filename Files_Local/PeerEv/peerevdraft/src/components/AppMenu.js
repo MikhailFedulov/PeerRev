@@ -9,6 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Grid from '@material-ui/core/Grid';
 import { AmplifySignOut} from '@aws-amplify/ui-react';
 import CreateCourse from './CreateCourse'
+import CreateTask from './CreateTask'
 import DisplayCourses from './DisplayCourses'
 import Home from './Home'
 import AccountCircle from '@material-ui/icons/AccountCircle';
@@ -30,7 +31,7 @@ class AppMenu extends Component {
     render() {
           return (
             <div >
-              <AppBar position="static" className="topbar" style={{backgroundColor: "#b3b3b3"}}>
+              <AppBar position="static"  style={{backgroundColor: "#b3b3b3"}}>
               <Toolbar variant="dense">
                   <Grid
                     justify="space-between" // Add it here :)
@@ -52,6 +53,10 @@ class AppMenu extends Component {
                       </Button>
 
                       <Button component={RouterLink} to="/CreateCourse" edge="start" color="inherit" aria-label="menu">
+                          <AddCircleOutlineIcon />
+                      </Button>
+
+                      <Button component={RouterLink} to="/CreateTask" edge="start" color="inherit" aria-label="menu">
                           <AddCircleOutlineIcon />
                       </Button>
 

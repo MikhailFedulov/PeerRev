@@ -1,40 +1,48 @@
 import React, { Component } from 'react'
-import { listCourses } from '../graphql/queries'
-import { createCourse } from '../graphql/mutations'
-import { API, graphqlOperation } from 'aws-amplify'
-import {Auth} from 'aws-amplify'
+import { Auth, API, graphqlOperation } from 'aws-amplify'
+import { getCourse } from '../graphql/queries';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { deleteCourse } from '../graphql/mutations'
-import { getCourse } from '../graphql/queries'
 import DisplayCourses from './DisplayCourses'
-import { Link as RouterLink } from 'react-router-dom';
-import { browserHistory } from 'react-router';
+import * as queries from '../graphql/queries';
+
+
 import Button from '@material-ui/core/Button';
 
-
 class CourseLayout extends Component {
-
-
-    handlegetCourses = async courseId => {
-        const input ={
-            id: courseId
+/*
+    state = {
+            courseTitle: "",
+            courseBody: "",
+            numberofstudents: ""
         }
-        await API.graphql(graphqlOperation(getCourse, {input}))
-    }
+*/
+    getCourses = async () => {
 
 
-    render() {
-           console.log(this.props.data)
-           const course = this.props.data
-           return (
-               <div>
-               <p> {this.props.courseTitle}</p>
-               </div>
-           )
-       }
-   }
+            //const result = await API.graphql({ query: queries.getCourse, variables: { courseresult }});
+            const result = await API.graphql(graphqlOperation(getCourse, { id: '6a8d57e6-c542-4276-9303-46f55584119f' }))
+            console.log('blog successfully fetched', result)
+            //this.setState({ state: result.data.getCourse.items})
+            //console.log("All Courses: ", result.data.getCourse.items)
+            }
 
+            /*
+            getBlog = async () => {
+              const data = await API.graphql(graphqlOperation(GetBlog, { id: this.props.blogId }))
+              console.log('blog successfully fetched', data)
+            }
+          */
 
+            render() {
+
+                return (
+                    <div>
+                    <p> test </p>
+                    </div>
+                )
+            }
+            }
 
 export default CourseLayout;
