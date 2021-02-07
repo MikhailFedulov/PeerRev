@@ -16,11 +16,6 @@ class CourseLayout extends Component {
 
     //const child = ({ match }) => ({match.params.id})
 
-        state = {
-            courseTitle: this.courseTitle,
-            courseBody: this.courseBody,
-            numberofstudents: this.numberofstudents
-        }
 
     componentDidMount = async () => {
         this.getCourses()
@@ -32,7 +27,7 @@ class CourseLayout extends Component {
 
     getCourses = async () => {
             //const course = this.props.data
-            const result = await API.graphql(graphqlOperation(getCourse), { id: this.props.id })
+            const result = await API.graphql(graphqlOperation(getCourse), { id:'6a8d57e6-c542-4276-9303-46f55584119f' })
             //this.setState({ courses: result.data.listCourses.items})
             console.log("All One Course: ", result)
         }
@@ -42,6 +37,7 @@ getCourses2 = async () => {
         //this.setState({ courses: result.data.listCourses.items})
         console.log("Step 1")
     }
+
 
             /*
             getBlog = async () => {
@@ -55,7 +51,7 @@ getCourses2 = async () => {
                 //console.log("All Courses 2: ", this.props.data)
                 return (
                     <div>
-                        <p>  test 2 </p>
+                        <p>  test </p>
                     </div>
                 )
             }

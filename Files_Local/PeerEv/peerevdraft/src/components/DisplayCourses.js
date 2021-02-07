@@ -88,7 +88,6 @@ getCourses = async () => {
                       </time></td>
                       <td><p> { course.courseBody } </p></td>
                       <td><EditCourse {...course} /></td>
-                      <CourseLayout />
                       <td><Button component={RouterLink} to={`/CourseLayout/${course.id}`}>Test</Button></td>
                     </tr>
                   </tbody>
