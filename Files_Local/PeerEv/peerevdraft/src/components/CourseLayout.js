@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Auth, API, graphqlOperation } from 'aws-amplify'
 import { getCourse } from '../graphql/queries';
+import { listCourses } from '../graphql/queries'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { deleteCourse } from '../graphql/mutations'
@@ -11,22 +12,36 @@ import * as queries from '../graphql/queries';
 import Button from '@material-ui/core/Button';
 
 class CourseLayout extends Component {
-/*
-    state = {
-            courseTitle: "",
-            courseBody: "",
-            numberofstudents: ""
+
+
+    //const child = ({ match }) => ({match.params.id})
+
+        state = {
+            courseTitle: this.courseTitle,
+            courseBody: this.courseBody,
+            numberofstudents: this.numberofstudents
         }
-*/
+
+    componentDidMount = async () => {
+        this.getCourses()
+    }
+
+    componentWillUnmount() {
+
+    }
+
     getCourses = async () => {
+            //const course = this.props.data
+            const result = await API.graphql(graphqlOperation(getCourse), { id: this.props.id })
+            //this.setState({ courses: result.data.listCourses.items})
+            console.log("All One Course: ", result)
+        }
 
-
-            //const result = await API.graphql({ query: queries.getCourse, variables: { courseresult }});
-            const result = await API.graphql(graphqlOperation(getCourse, { id: '6a8d57e6-c542-4276-9303-46f55584119f' }))
-            console.log('blog successfully fetched', result)
-            //this.setState({ state: result.data.getCourse.items})
-            //console.log("All Courses: ", result.data.getCourse.items)
-            }
+getCourses2 = async () => {
+        const result = await API.graphql(graphqlOperation(listCourses))
+        //this.setState({ courses: result.data.listCourses.items})
+        console.log("Step 1")
+    }
 
             /*
             getBlog = async () => {
@@ -36,10 +51,11 @@ class CourseLayout extends Component {
           */
 
             render() {
-
+                //const course = this.props.data
+                //console.log("All Courses 2: ", this.props.data)
                 return (
                     <div>
-                    <p> test </p>
+                        <p>  test 2 </p>
                     </div>
                 )
             }

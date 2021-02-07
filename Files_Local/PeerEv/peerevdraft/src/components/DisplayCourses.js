@@ -54,7 +54,7 @@ componentWillUnmount() {
 getCourses = async () => {
         const result = await API.graphql(graphqlOperation(listCourses))
         this.setState({ courses: result.data.listCourses.items})
-        //console.log("All Courses: ", result.data.listCourses.items)
+        console.log("All Courses: ", result.data.listCourses.items)
     }
 
 
@@ -88,6 +88,7 @@ getCourses = async () => {
                       </time></td>
                       <td><p> { course.courseBody } </p></td>
                       <td><EditCourse {...course} /></td>
+                      <CourseLayout />
                       <td><Button component={RouterLink} to={`/CourseLayout/${course.id}`}>Test</Button></td>
                     </tr>
                   </tbody>
