@@ -11,36 +11,40 @@ import * as queries from '../graphql/queries';
 import Button from '@material-ui/core/Button';
 
 class CourseLayout extends Component {
-/*
+
     state = {
             courseTitle: "",
             courseBody: "",
             numberofstudents: ""
         }
-*/
+
     getCourses = async () => {
 
+            const url = this.props.location.pathname;
+            const urlSplit = url.split("/")
+            const result = await API.graphql(graphqlOperation(getCourse, { id: urlSplit[2]}))
 
-            //const result = await API.graphql({ query: queries.getCourse, variables: { courseresult }});
-            const result = await API.graphql(graphqlOperation(getCourse, { id: '6a8d57e6-c542-4276-9303-46f55584119f' }))
-            console.log('blog successfully fetched', result)
-            //this.setState({ state: result.data.getCourse.items})
-            //console.log("All Courses: ", result.data.getCourse.items)
-            }
+            this.setState ({
 
-            /*
-            getBlog = async () => {
-              const data = await API.graphql(graphqlOperation(GetBlog, { id: this.props.blogId }))
-              console.log('blog successfully fetched', data)
+              courseTitle: result.data.getCourse.courseTitle,
+              courseBody: result.data.getCourse.courseBody,
+              numberofstudents: result.data.getCourse.numberofstudents
+
+            })
+
             }
-          */
 
             render() {
 
+              this.getCourses();
+
                 return (
-                    <div>
+                  <div>
                     <p> test </p>
-                    </div>
+                    <p>{ this.state.courseTitle } </p>
+                    <p>{ this.state.courseBody } </p>
+                    <p>{ this.state.numberofstudents } </p>
+                  </div>
                 )
             }
             }
