@@ -30,6 +30,7 @@ function App() {
             <Route path={"/DisplayCourses"} component={DisplayCourses} />
             <Route path={"/Home"} component={Home} />
             //<Route exact path={"/CourseLayout"} component={CourseLayout} />
+            //<Route path={"/CourseLayout/:course.id"} render={props => <CourseLayout {...props} /> } />
             <Route path={"/CourseLayout/:course.id"} component={CourseLayout} />
             <Route path={"/Checkout"} component={Checkout} />
             <Route path={"/DisplayTasks"} component={DisplayTasks} />

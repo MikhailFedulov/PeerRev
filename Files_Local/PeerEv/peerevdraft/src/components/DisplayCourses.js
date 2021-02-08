@@ -54,7 +54,7 @@ componentWillUnmount() {
 getCourses = async () => {
         const result = await API.graphql(graphqlOperation(listCourses))
         this.setState({ courses: result.data.listCourses.items})
-        //console.log("All Courses: ", result.data.listCourses.items)
+        console.log("All Courses: ", result.data.listCourses.items)
     }
 
 

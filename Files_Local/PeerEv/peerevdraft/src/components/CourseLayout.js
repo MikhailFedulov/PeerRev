@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Auth, API, graphqlOperation } from 'aws-amplify'
 import { getCourse } from '../graphql/queries';
+import { listCourses } from '../graphql/queries'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { deleteCourse } from '../graphql/mutations'
@@ -19,6 +20,11 @@ class CourseLayout extends Component {
         }
 
     getCourses = async () => {
+            //const course = this.props.data
+            const result = await API.graphql(graphqlOperation(getCourse), { id:'6a8d57e6-c542-4276-9303-46f55584119f' })
+            //this.setState({ courses: result.data.listCourses.items})
+            console.log("All One Course: ", result)
+        }
 
             const url = this.props.location.pathname;
             const urlSplit = url.split("/")
