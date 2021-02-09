@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import DisplayCourses from './components/DisplayCourses'
 import DisplayTasks from './components/DisplayTasks'
