@@ -10,14 +10,42 @@ import DisplayTasks from './DisplayTasks'
 import { Link as RouterLink } from 'react-router-dom';
 import { browserHistory } from 'react-router';
 import Button from '@material-ui/core/Button';
+import { getTask } from '../graphql/queries';
 
 
 class TaskLayout extends Component {
 
+    state = {
+        taskTitle: "",
+        taskBody: "",
+        taskcontent: ""
+    }
+
+    getTask = async () => {
+
+        const url = this.props.location.pathname;
+        const urlSplit = url.split("/")
+        const result = await API.graphql(graphqlOperation( getTask, {id: urlSplit.pop()}))
+
+        this.setState ({
+
+            taskTitle: result.data.getCourse.taskTitle,
+            taskBody: result.data.getCourse.taskBody,
+            taskcontent: result.data.getCourse.taskcontent
+
+          })
+    }
+
     render() {
-         console.log(this.props.params)
+
+        this.getTask();
          return (
-            <h1>Test: {this.props.params.task.id}</h1>
+             <div>
+                    <p>{ this.state.taskTitle } </p>
+                    <p>{ this.state.taskBody } </p>
+                    <p>{ this.state.taskcontent } </p>
+             </div>
+            
          )
      }
  }

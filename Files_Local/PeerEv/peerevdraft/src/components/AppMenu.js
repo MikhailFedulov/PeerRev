@@ -31,7 +31,7 @@ class AppMenu extends Component {
     render() {
           return (
             <div >
-              <AppBar position="static"  style={{backgroundColor: "#b3b3b3"}}>
+              <AppBar position="static"  style={{backgroundColor: "#023047"}}>
               <Toolbar variant="dense">
                   <Grid
                     justify="space-between" // Add it here :)
@@ -48,9 +48,9 @@ class AppMenu extends Component {
                          Dashboard
                       </Button>
 
-                      <Button component={RouterLink} to="/DisplayCourses" edge="start" color="inherit" aria-label="menu">
+                      {/* <Button component={RouterLink} to="/DisplayCourses" edge="start" color="inherit" aria-label="menu">
                          People
-                      </Button>
+                      </Button> */}
 
                       <Button component={RouterLink} to="/CreateCourse" edge="start" color="inherit" aria-label="menu">
                           <AddCircleOutlineIcon />

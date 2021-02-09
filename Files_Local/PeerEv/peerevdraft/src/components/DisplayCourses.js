@@ -71,24 +71,14 @@ getCourses = async () => {
 
                 <Table striped bordered hover key={course.id}>
                   <thead>
-                    <tr>
-                      <th>Course Name</th>
-                      <th>Facilitator</th>
-                      <th>Date Created</th>
-                      <th>Describtion</th>
-                    </tr>
+                    <a class="Row" id="Course-Title-Link" href={`/CourseLayout/${course.id}`}> Course Name {course.courseTitle }</a>
                   </thead>
                   <tbody>
-                    <tr >
-                      <td>{course.courseTitle } </td>
-                      <td>{course.courseOwnerUsername}</td>
-                      <td><time style={{fontStyle: "italic"}}>
-                          { " "}
-                              { new Date(course.createdAt).toDateString()}
-                      </time></td>
-                      <td><p> { course.courseBody } </p></td>
-                      <td><EditCourse {...course} /></td>
-                      <td><Button component={RouterLink} to={`/CourseLayout/${course.id}`}>Test</Button></td>
+                    <tr class="Row" id="Course-Facilitator"> 
+                        <td>Facilitator: {course.courseOwnerUsername} </td>
+                        <td>{ new Date(course.createdAt).toDateString()}</td>
+                        <td> <EditCourse {...course} /> </td>
+                      {/* <td><Button component={RouterLink} to={`/CourseLayout/${course.id}`}>Test</Button></td> */}
                     </tr>
                   </tbody>
                 </Table>

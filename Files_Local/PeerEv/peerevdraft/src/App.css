@@ -1,6 +1,7 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
+
 
 .App-logo {
   height: 40vmin;
@@ -61,8 +62,7 @@ input[type=submit]:hover {
   margin-right: auto;
   width: 50%;
   box-shadow: 1px 1px 9px 7px #36181833;
-
-  padding: .5rem;
+  padding: 1rem;
 }
 
 .tasks{
@@ -80,7 +80,6 @@ input[type=submit]:hover {
 .nav-bar-button {
   justify-content: left;
 }
-
 
 
 body{
@@ -314,4 +313,24 @@ ul.no-bullets {
 
 .list-nav{
     align-content: center;
+}
+
+#Course-Title-Link {
+	color: black;
+	text-decoration: none;
+	font-size: 20px;
+}
+
+#Course-Title-Link:hover {
+	color:#023e8a;
+	text-decoration: underline;
+}
+
+.Row {
+	height: 35px;
+}
+
+#Course-Facilitator {
+	color: black;
+	font-size: 16px;
 }

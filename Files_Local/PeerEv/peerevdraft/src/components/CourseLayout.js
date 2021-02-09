@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import { deleteCourse } from '../graphql/mutations'
 import DisplayCourses from './DisplayCourses'
 import * as queries from '../graphql/queries';
-
+import TaskLayout from './TaskLayout.js';
 
 import Button from '@material-ui/core/Button';
 
@@ -22,7 +22,7 @@ class CourseLayout extends Component {
 
             const url = this.props.location.pathname;
             const urlSplit = url.split("/")
-            const result = await API.graphql(graphqlOperation(getCourse, { id: urlSplit[2]}))
+            const result = await API.graphql(graphqlOperation(getCourse, { id: urlSplit.pop()}))
 
             this.setState ({
 
@@ -40,10 +40,10 @@ class CourseLayout extends Component {
 
                 return (
                   <div>
-                    <p> test </p>
                     <p>{ this.state.courseTitle } </p>
                     <p>{ this.state.courseBody } </p>
                     <p>{ this.state.numberofstudents } </p>
+                    {/* <TaskLayout /> */}
                   </div>
                 )
             }
