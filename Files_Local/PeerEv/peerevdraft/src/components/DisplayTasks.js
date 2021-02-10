@@ -69,6 +69,7 @@ componentDidMount = async () => {
 
 componentWillUnmount() {
     this.createTaskListener.unsubscribe()
+    this.createPostCommentListener.unsubscribe()
 }
 
 getTasks = async () => {
