@@ -48,6 +48,20 @@ componentDidMount = async () => {
                       this.setState({ tasks: updatedTasks})
                  }
              })
+     this.createPostCommentListener = API.graphql(graphqlOperation(onCreateTask))
+                           .subscribe({
+                                next: questionData => {
+                                     const createdComment = questionData.value.data.onCreateTask
+                                     let posts = [ ...this.state.tasks]
+
+                                     for (let task of task ) {
+                                          if ( createdComment.task.id === task.id) {
+                                               task.comments.items.push(createdComment)
+                                          }
+                                     }
+                                     this.setState({ posts})
+                                }
+             })
 
 
 
@@ -100,7 +114,7 @@ getTasks = async () => {
                   </tbody>
                 </Table>
                 <span>
-                        <CreateComment TaskId={task.id} />
+                        <CreateComment taskId={task.id} />
                         { task.questions.items.length > 0 && <span style={{fontSize:"19px", color:"gray"}}>
                          Comments: </span>}
                              {

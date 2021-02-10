@@ -11,6 +11,7 @@ import Amplify, { Auth } from 'aws-amplify';
 import { AmplifySignOut, withAuthenticator } from '@aws-amplify/ui-react';
 import {Switch, Route, BrowserRouter as Router} from 'react-router-dom';
 import CourseLayout from './components/CourseLayout'
+import TaskLayout from './components/TaskLayout'
 import Checkout from './components/Checkout'
 import CreateTask from './components/CreateTask'
 import CreateComment from './components/CreateComment'
@@ -32,6 +33,7 @@ function App() {
             //<Route exact path={"/CourseLayout"} component={CourseLayout} />
             //<Route path={"/CourseLayout/:course.id"} render={props => <CourseLayout {...props} /> } />
             <Route path={"/CourseLayout/:course.id"} component={CourseLayout} />
+            <Route path={"/TaskLayout/:task.id"} component={TaskLayout} />
             <Route path={"/Checkout"} component={Checkout} />
             <Route path={"/DisplayTasks"} component={DisplayTasks} />
             <Route path={"/CourseLayout"} component={CourseLayout} />

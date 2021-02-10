@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Auth, API, graphqlOperation } from 'aws-amplify'
 import { getCourse } from '../graphql/queries';
-import { listCourses } from '../graphql/queries'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { deleteCourse } from '../graphql/mutations'
@@ -13,46 +12,39 @@ import Button from '@material-ui/core/Button';
 
 class CourseLayout extends Component {
 
-
-    //const child = ({ match }) => ({match.params.id})
-
-
-    componentDidMount = async () => {
-        this.getCourses()
-    }
-
-    componentWillUnmount() {
-
-    }
-
-    getCourses = async () => {
-            //const course = this.props.data
-            const result = await API.graphql(graphqlOperation(getCourse), { id:'6a8d57e6-c542-4276-9303-46f55584119f' })
-            //this.setState({ courses: result.data.listCourses.items})
-            console.log("All One Course: ", result)
+    state = {
+            courseTitle: "",
+            courseBody: "",
+            numberofstudents: ""
         }
 
-getCourses2 = async () => {
-        const result = await API.graphql(graphqlOperation(listCourses))
-        //this.setState({ courses: result.data.listCourses.items})
-        console.log("Step 1")
-    }
+    getCourses = async () => {
 
+            const url = this.props.location.pathname;
+            const urlSplit = url.split("/")
+            const result = await API.graphql(graphqlOperation(getCourse, { id: urlSplit[2]}))
 
-            /*
-            getBlog = async () => {
-              const data = await API.graphql(graphqlOperation(GetBlog, { id: this.props.blogId }))
-              console.log('blog successfully fetched', data)
+            this.setState ({
+
+              courseTitle: result.data.getCourse.courseTitle,
+              courseBody: result.data.getCourse.courseBody,
+              numberofstudents: result.data.getCourse.numberofstudents
+
+            })
+
             }
-          */
 
             render() {
-                //const course = this.props.data
-                //console.log("All Courses 2: ", this.props.data)
+
+              this.getCourses();
+
                 return (
-                    <div>
-                        <p>  test </p>
-                    </div>
+                  <div>
+                    <p> test </p>
+                    <p>{ this.state.courseTitle } </p>
+                    <p>{ this.state.courseBody } </p>
+                    <p>{ this.state.numberofstudents } </p>
+                  </div>
                 )
             }
             }
