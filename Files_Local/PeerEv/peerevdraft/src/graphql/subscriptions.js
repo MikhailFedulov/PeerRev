@@ -14,6 +14,20 @@ export const onCreateCourse = /* GraphQL */ `
       caponnumberofcollaborators
       createdAt
       numberofstudents
+      task {
+        items {
+          id
+          taskOwnerId
+          taskOwnerUsername
+          taskTitle
+          taskBody
+          taskcontent
+          numberofQuestions
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       groups {
         items {
           id
@@ -43,6 +57,20 @@ export const onUpdateCourse = /* GraphQL */ `
       caponnumberofcollaborators
       createdAt
       numberofstudents
+      task {
+        items {
+          id
+          taskOwnerId
+          taskOwnerUsername
+          taskTitle
+          taskBody
+          taskcontent
+          numberofQuestions
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       groups {
         items {
           id
@@ -72,6 +100,20 @@ export const onDeleteCourse = /* GraphQL */ `
       caponnumberofcollaborators
       createdAt
       numberofstudents
+      task {
+        items {
+          id
+          taskOwnerId
+          taskOwnerUsername
+          taskTitle
+          taskBody
+          taskcontent
+          numberofQuestions
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       groups {
         items {
           id
@@ -109,6 +151,25 @@ export const onCreateTask = /* GraphQL */ `
         }
         nextToken
       }
+      course {
+        id
+        courseOwnerId
+        courseOwnerUsername
+        courseTitle
+        courseBody
+        courseStart
+        courseEnd
+        caponnumberofcollaborators
+        createdAt
+        numberofstudents
+        task {
+          nextToken
+        }
+        groups {
+          nextToken
+        }
+        updatedAt
+      }
       createdAt
       updatedAt
     }
@@ -134,6 +195,25 @@ export const onUpdateTask = /* GraphQL */ `
           updatedAt
         }
         nextToken
+      }
+      course {
+        id
+        courseOwnerId
+        courseOwnerUsername
+        courseTitle
+        courseBody
+        courseStart
+        courseEnd
+        caponnumberofcollaborators
+        createdAt
+        numberofstudents
+        task {
+          nextToken
+        }
+        groups {
+          nextToken
+        }
+        updatedAt
       }
       createdAt
       updatedAt
@@ -161,6 +241,25 @@ export const onDeleteTask = /* GraphQL */ `
         }
         nextToken
       }
+      course {
+        id
+        courseOwnerId
+        courseOwnerUsername
+        courseTitle
+        courseBody
+        courseStart
+        courseEnd
+        caponnumberofcollaborators
+        createdAt
+        numberofstudents
+        task {
+          nextToken
+        }
+        groups {
+          nextToken
+        }
+        updatedAt
+      }
       createdAt
       updatedAt
     }
@@ -183,6 +282,19 @@ export const onCreateQuestion = /* GraphQL */ `
         numberofQuestions
         questions {
           nextToken
+        }
+        course {
+          id
+          courseOwnerId
+          courseOwnerUsername
+          courseTitle
+          courseBody
+          courseStart
+          courseEnd
+          caponnumberofcollaborators
+          createdAt
+          numberofstudents
+          updatedAt
         }
         createdAt
         updatedAt
@@ -210,6 +322,19 @@ export const onUpdateQuestion = /* GraphQL */ `
         questions {
           nextToken
         }
+        course {
+          id
+          courseOwnerId
+          courseOwnerUsername
+          courseTitle
+          courseBody
+          courseStart
+          courseEnd
+          caponnumberofcollaborators
+          createdAt
+          numberofstudents
+          updatedAt
+        }
         createdAt
         updatedAt
       }
@@ -235,6 +360,19 @@ export const onDeleteQuestion = /* GraphQL */ `
         numberofQuestions
         questions {
           nextToken
+        }
+        course {
+          id
+          courseOwnerId
+          courseOwnerUsername
+          courseTitle
+          courseBody
+          courseStart
+          courseEnd
+          caponnumberofcollaborators
+          createdAt
+          numberofstudents
+          updatedAt
         }
         createdAt
         updatedAt
@@ -263,6 +401,9 @@ export const onCreateGroups = /* GraphQL */ `
         caponnumberofcollaborators
         createdAt
         numberofstudents
+        task {
+          nextToken
+        }
         groups {
           nextToken
         }
@@ -292,6 +433,9 @@ export const onUpdateGroups = /* GraphQL */ `
         caponnumberofcollaborators
         createdAt
         numberofstudents
+        task {
+          nextToken
+        }
         groups {
           nextToken
         }
@@ -321,6 +465,9 @@ export const onDeleteGroups = /* GraphQL */ `
         caponnumberofcollaborators
         createdAt
         numberofstudents
+        task {
+          nextToken
+        }
         groups {
           nextToken
         }

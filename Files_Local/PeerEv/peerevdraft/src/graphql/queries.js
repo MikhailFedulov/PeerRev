@@ -14,6 +14,20 @@ export const getCourse = /* GraphQL */ `
       caponnumberofcollaborators
       createdAt
       numberofstudents
+      task {
+        items {
+          id
+          taskOwnerId
+          taskOwnerUsername
+          taskTitle
+          taskBody
+          taskcontent
+          numberofQuestions
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       groups {
         items {
           id
@@ -48,6 +62,9 @@ export const listCourses = /* GraphQL */ `
         caponnumberofcollaborators
         createdAt
         numberofstudents
+        task {
+          nextToken
+        }
         groups {
           nextToken
         }
@@ -78,6 +95,25 @@ export const getTask = /* GraphQL */ `
         }
         nextToken
       }
+      course {
+        id
+        courseOwnerId
+        courseOwnerUsername
+        courseTitle
+        courseBody
+        courseStart
+        courseEnd
+        caponnumberofcollaborators
+        createdAt
+        numberofstudents
+        task {
+          nextToken
+        }
+        groups {
+          nextToken
+        }
+        updatedAt
+      }
       createdAt
       updatedAt
     }
@@ -107,7 +143,19 @@ export const listTasks = /* GraphQL */ `
               createdAt
               updatedAt
             }
-          nextToken
+        }
+        course {
+          id
+          courseOwnerId
+          courseOwnerUsername
+          courseTitle
+          courseBody
+          courseStart
+          courseEnd
+          caponnumberofcollaborators
+          createdAt
+          numberofstudents
+          updatedAt
         }
         createdAt
         updatedAt
@@ -132,7 +180,20 @@ export const getQuestion = /* GraphQL */ `
         taskcontent
         numberofQuestions
         questions {
-          nextToken
+             nextToken
+        }
+        course {
+          id
+          courseOwnerId
+          courseOwnerUsername
+          courseTitle
+          courseBody
+          courseStart
+          courseEnd
+          caponnumberofcollaborators
+          createdAt
+          numberofstudents
+          updatedAt
         }
         createdAt
         updatedAt
@@ -191,6 +252,9 @@ export const getGroups = /* GraphQL */ `
         caponnumberofcollaborators
         createdAt
         numberofstudents
+        task {
+          nextToken
+        }
         groups {
           nextToken
         }

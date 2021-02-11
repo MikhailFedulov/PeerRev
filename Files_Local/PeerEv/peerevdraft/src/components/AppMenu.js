@@ -28,6 +28,7 @@ import SearchBar from "material-ui-search-bar";
 
 class AppMenu extends Component {
 
+<<<<<<< HEAD
     render() {
           return (
             <div >
@@ -82,6 +83,62 @@ class AppMenu extends Component {
           );
         }
     }
+=======
+   render() {
+         return (
+           <div >
+             <AppBar position="static"  style={{backgroundColor: "#023047"}}>
+             <Toolbar variant="dense">
+                 <Grid
+                   justify="space-between" // Add it here :)
+                   container
+                   spacing={24}
+                   display="inline-block">
+                   <Grid display="flex" justify-content="center">
+
+                     <IconButton component={RouterLink} to="/DisplayCourses" edge="start" color="inherit" aria-label="menu">
+                       <MenuIcon />
+                     </IconButton>
+
+                     <Button component={RouterLink} to="/DisplayCourses" edge="start" color="inherit" aria-label="menu">
+                        Dashboard
+                     </Button>
+
+                     {/* <Button component={RouterLink} to="/DisplayCourses" edge="start" color="inherit" aria-label="menu">
+                        People
+                     </Button> */}
+
+                     <Button component={RouterLink} to="/CreateCourse" edge="start" color="inherit" aria-label="menu">
+                         <AddCircleOutlineIcon />
+                     </Button>
+
+                     <Button component={RouterLink} to="/CreateTask" edge="start" color="inherit" aria-label="menu">
+                         <AddCircleOutlineIcon />
+                     </Button>
+
+
+
+
+                   </Grid>
+
+                   <Grid item>
+                     <div>
+                     <IconButton edge="start" color="inherit" aria-label="menu">
+                       <AccountCircle />
+                     </IconButton>
+                       <Button raised color="accent">
+                         <AmplifySignOut />
+                       </Button>
+                     </div>
+                   </Grid>
+                 </Grid>
+               </Toolbar>
+             </AppBar>
+           </div>
+         );
+       }
+   }
+>>>>>>> Michael
 
 
 export default AppMenu;

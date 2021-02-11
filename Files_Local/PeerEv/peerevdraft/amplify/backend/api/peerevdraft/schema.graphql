@@ -9,6 +9,7 @@ type Course @model {
     caponnumberofcollaborators: Boolean
     createdAt: String
     numberofstudents: Int!
+    task: [Task] @connection(name: "CourseTasks")
     groups: [Groups] @connection(name: "CourseGroups")
 
 }
@@ -22,6 +23,7 @@ type Task @model {
     taskcontent: String!
     numberofQuestions: Int
     questions: [Question] @connection(name: "TaskQuestions") #relationship
+    course: Course @connection(name: "CourseTasks")
     createdAt: String!
 }
 

@@ -47,8 +47,10 @@ class CreateTask extends Component {
 
         handleAddTask = async event =>  {
             event.preventDefault()
+            console.log(this.props.courseId)
 
             const input ={
+                taskCourseId: this.props.courseId,
                 taskOwnerId: this.state.taskOwnerId,
                 taskOwnerUsername: this.state.taskOwnerUsername,
                 taskTitle: this.state.taskTitle,

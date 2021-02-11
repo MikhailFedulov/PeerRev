@@ -28,7 +28,7 @@ class CreateComment extends Component {
           event.preventDefault()
 
           const input = {
-               qPostId: this.props.taskId,
+               questionTaskId: this.props.taskId,
                qOwnerId: this.state.qOwnerId,
                qOwnerUsername: this.state.qOwnerUsername,
                qTitle: this.state.qTitle,
