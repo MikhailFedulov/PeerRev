@@ -135,7 +135,14 @@ export const listTasks = /* GraphQL */ `
         taskcontent
         numberofQuestions
         questions {
-          nextToken
+            items {
+              id
+              qOwnerId
+              qOwnerUsername
+              qTitle
+              createdAt
+              updatedAt
+            }
         }
         course {
           id
@@ -173,7 +180,7 @@ export const getQuestion = /* GraphQL */ `
         taskcontent
         numberofQuestions
         questions {
-          nextToken
+             nextToken
         }
         course {
           id
