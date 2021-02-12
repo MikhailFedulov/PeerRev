@@ -47,7 +47,6 @@ class CreateTask extends Component {
 
         handleAddTask = async event =>  {
             event.preventDefault()
-            console.log(this.props.courseId)
 
             const input ={
                 taskCourseId: this.props.courseId,
@@ -63,32 +62,57 @@ class CreateTask extends Component {
 
             this.setState({ taskTitle: "", taskBody: "", taskcontent: ""})
         }
+        
+        openForm() {
+          document.getElementById("add-post").style.display = "block";
+        }
+        
+        closeForm() {
+          document.getElementById("add-post").style.display = "none";
+        }
 
      render() {
              return (
-                 <Paper className="courses" variant="outlined" elevation={2}>
-                   <Typography variant="h6" gutterBottom>
-                     Create Task
-                   </Typography>
-                 <form className="add-post" onSubmit={this.handleAddTask}>
 
-                 <input style={{ font: '19px'}} type="text" placeholder="Task Name:" name="taskTitle" required value={this.state.taskTitle} onChange={this.handleChangeTask}/>
+              <div>
+                  <button class="open-button" onClick={this.openForm}>Add Task</button>
 
-                  <input style={{ font: '19px'}} type="text" placeholder="Task Description" name="taskBody" required value={this.state.taskBody} onChange={this.handleChangeTask}/>
+                  <div>
+                  <form id="add-post" className="add-post" onSubmit={this.handleAddTask}>
+                  <Paper className="courses" variant="outlined" elevation={2}>
+                      <Typography variant="h6" gutterBottom>
+                        Create Task
+                      </Typography>
 
-                 <input style={{ font: '19px'}} type="text" placeholder="Task Content: " name="taskcontent" required value={this.state.taskcontent} onChange={this.handleChangeTask}/>
+                      <input style={{ font: '19px'}} type="text" placeholder="Task Name" name="taskTitle" onChange={this.handleChangeTask}/>
 
-                 <FormControlLabel
-                   control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
-                   label="I agree with Terms and Conditions"
-                 />
+                      <input style={{ font: '19px'}} type="text" placeholder="Task Description" name="taskBody" onChange={this.handleChangeTask}/>
 
-                 <input type="submit" className="btn" style={{ fontSize: '19ps', width: '100px', backgroundColor: '#ff9933'}}/>
+                      <input style={{ font: '19px'}} type="text" placeholder="Task Content" name="taskcontent" onChange={this.handleChangeTask}/>
 
-                 </form>
+                      <div style= { {
+                        display: 'inline'
+                      }}>
+                        <input type="submit" className="btn" style={{ fontSize: '19ps', width: '100px', backgroundColor: '#ff9933'}}/>
+                        <button className="btn-button" style={{ 
+                          color: 'white',
+                          fontSize: '19ps', 
+                          width: '100px', 
+                          height: '44px',
+                          backgroundColor: '#ff9933',
+                          borderRadius: '5px',
+                          border: 'none',
+                          margin: '30px'
+                          }}  onClick={this.closeForm}>Close</button>
+                      </div>
+                      
+                    
+                    </Paper>
+                    </form>
+                  </div>
+              </div>
 
-                   </Paper>
-                 );
+                 )
                }
 
 

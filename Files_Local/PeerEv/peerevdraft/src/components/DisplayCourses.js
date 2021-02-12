@@ -52,50 +52,10 @@ componentWillUnmount() {
 }
 
 getCourses = async () => {
-<<<<<<< HEAD
         const result = await API.graphql(graphqlOperation(listCourses))
         this.setState({ courses: result.data.listCourses.items})
         console.log("All Courses: ", result.data.listCourses.items)
     }
-
-
-
-    render() {
-        const { courses } = this.state
-
-        return courses.map(( course ) => {
-
-            return (
-
-                <div>
-                <Paper className="courses" variant="outlined" elevation={2}>
-
-                <Table striped bordered hover key={course.id}>
-                  <thead>
-                    <a class="Row" id="Course-Title-Link" href={`/CourseLayout/${course.id}`}> Course Name {course.courseTitle }</a>
-                  </thead>
-                  <tbody>
-                    <tr class="Row" id="Course-Facilitator"> 
-                        <td>Facilitator: {course.courseOwnerUsername} </td>
-                        <td>{ new Date(course.createdAt).toDateString()}</td>
-                        <td> <EditCourse {...course} /> </td>
-                      {/* <td><Button component={RouterLink} to={`/CourseLayout/${course.id}`}>Test</Button></td> */}
-                    </tr>
-                  </tbody>
-                </Table>
-                </Paper>
-
-                </div>
-
-
-            )
-        })
-    }
-=======
-       const result = await API.graphql(graphqlOperation(listCourses))
-       this.setState({ courses: result.data.listCourses.items})
-       console.log("All Courses: ", result.data.listCourses.items)
-   }
 
 
 
@@ -113,7 +73,7 @@ getCourses = async () => {
                  <thead>
                    <a class="Row" id="Course-Title-Link" href={`/CourseLayout/${course.id}`}> Course Name {course.courseTitle }</a>
                  </thead>
-                 <tbody>
+                 <tbody> 
                    <tr class="Row" id="Course-Facilitator">
                        <td>Facilitator: {course.courseOwnerUsername} </td>
                        <td>{ new Date(course.createdAt).toDateString()}</td>
@@ -130,7 +90,6 @@ getCourses = async () => {
            )
        })
    }
->>>>>>> Michael
 
 }
 

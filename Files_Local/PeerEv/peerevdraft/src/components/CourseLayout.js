@@ -7,10 +7,7 @@ import { deleteCourse } from '../graphql/mutations'
 import DisplayCourses from './DisplayCourses'
 import * as queries from '../graphql/queries';
 import TaskLayout from './TaskLayout.js';
-<<<<<<< HEAD
-=======
 import CreateTask from './CreateTask'
->>>>>>> Michael
 
 import Button from '@material-ui/core/Button';
 import DisplayTasks from './DisplayTasks';
@@ -18,44 +15,6 @@ import Table from '@material-ui/core/Table';
 
 class CourseLayout extends Component {
 
-<<<<<<< HEAD
-    state = {
-            courseTitle: "",
-            courseBody: "",
-            numberofstudents: ""
-        }
-
-    getCourses = async () => {
-
-            const url = this.props.location.pathname;
-            const urlSplit = url.split("/")
-            const result = await API.graphql(graphqlOperation(getCourse, { id: urlSplit.pop()}))
-
-            this.setState ({
-
-              courseTitle: result.data.getCourse.courseTitle,
-              courseBody: result.data.getCourse.courseBody,
-              numberofstudents: result.data.getCourse.numberofstudents
-
-            })
-
-            }
-
-            render() {
-
-              this.getCourses();
-
-                return (
-                  <div>
-                    <p>{ this.state.courseTitle } </p>
-                    <p>{ this.state.courseBody } </p>
-                    <p>{ this.state.numberofstudents } </p>
-                    {/* <TaskLayout /> */}
-                  </div>
-                )
-            }
-            }
-=======
    state = {
            courseId: "",
            courseTitle: "",
@@ -86,11 +45,8 @@ class CourseLayout extends Component {
                return (
                  <div>
                    <Table id="Course-Layout-Header">
-                     <tr>{ this.state.courseTitle } </tr>
-                     <tr>
-                       <td>{ this.state.courseBody } </td>
-                       <td>{ this.state.numberofstudents }</td>
-                     </tr>
+                     <tr class="Row" id="Course-Name">Course Name: { this.state.courseTitle } </tr>
+                     <tr class="Row" id="Course-Description"> Description: { this.state.courseBody } </tr>
                    </Table>
                    <CreateTask courseId={this.state.courseId} />
                    <DisplayTasks />
@@ -98,6 +54,5 @@ class CourseLayout extends Component {
                )
            }
            }
->>>>>>> Michael
 
 export default CourseLayout;

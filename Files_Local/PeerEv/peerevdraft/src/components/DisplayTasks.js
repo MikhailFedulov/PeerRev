@@ -96,7 +96,7 @@ class DisplayTasks extends Component {
                                 <td><EditTask {...task} /></td>
                                 <a href={`/TaskLayout/${task.id}`}>  {task.taskTitle }</a> */}
                                 <td><a href={`/TaskLayout/${task.id}`}>{ task.taskTitle }</a></td>
-                                <td><Button component={RouterLink} to={`/TaskLayout/${task.id}`}>{ task.taskTitle }</Button></td>
+                                {/* <td><Button component={RouterLink} to={`/TaskLayout/${task.id}`}>{ task.taskTitle }</Button></td> */}
                                 <TaskLayout />
                                 </tr>
                             </tbody>
