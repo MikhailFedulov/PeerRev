@@ -65,17 +65,21 @@ class CreateTask extends Component {
         
         openForm() {
           document.getElementById("add-post").style.display = "block";
+          document.getElementById("add-task-button").style.display = "none";
         }
         
         closeForm() {
           document.getElementById("add-post").style.display = "none";
+          document.getElementById("add-task-button").style.display = "block";
         }
 
      render() {
              return (
 
               <div>
-                  <button class="open-button" onClick={this.openForm}>Add Task</button>
+                  <button id="add-task-button" class="open-button" style= {{ 
+                    backgroundColor: "#ff9933",
+                    borderRadius: "5px" }} onClick={this.openForm}>Add Task</button>
 
                   <div>
                   <form id="add-post" className="add-post" onSubmit={this.handleAddTask}>
@@ -84,11 +88,11 @@ class CreateTask extends Component {
                         Create Task
                       </Typography>
 
-                      <input style={{ font: '19px'}} type="text" placeholder="Task Name" name="taskTitle" onChange={this.handleChangeTask}/>
+                      <input style={{ font: '19px'}} type="text" placeholder="Task Name" required value={this.state.taskTitle} name="taskTitle" onChange={this.handleChangeTask}/>
 
-                      <input style={{ font: '19px'}} type="text" placeholder="Task Description" name="taskBody" onChange={this.handleChangeTask}/>
+                      <input style={{ font: '19px'}} type="text" placeholder="Task Description" required value={this.state.taskBody} name="taskBody" onChange={this.handleChangeTask}/>
 
-                      <input style={{ font: '19px'}} type="text" placeholder="Task Content" name="taskcontent" onChange={this.handleChangeTask}/>
+                      <input style={{ font: '19px'}} type="text" placeholder="Task Content" name="taskcontent" required value={this.state.taskcontent} onChange={this.handleChangeTask}/>
 
                       <div style= { {
                         display: 'inline'

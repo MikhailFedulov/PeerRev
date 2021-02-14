@@ -21,6 +21,7 @@ import CourseLayout from './CourseLayout'
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
+import { Link } from 'aws-amplify-react'
 
 
 
@@ -71,14 +72,13 @@ getCourses = async () => {
 
                <Table striped bordered hover key={course.id}>
                  <thead>
-                   <a class="Row" id="Course-Title-Link" href={`/CourseLayout/${course.id}`}> Course Name {course.courseTitle }</a>
+                   <Link class="Row" id="Course-Title-Link" href={`/CourseLayout/${course.id}`}>Course Name: {course.courseTitle }</Link>
                  </thead>
                  <tbody> 
                    <tr class="Row" id="Course-Facilitator">
                        <td>Facilitator: {course.courseOwnerUsername} </td>
                        <td>{ new Date(course.createdAt).toDateString()}</td>
                        <td> <EditCourse {...course} /> </td>
-                     {/* <td><Button component={RouterLink} to={`/CourseLayout/${course.id}`}>Test</Button></td> */}
                    </tr>
                  </tbody>
                </Table>

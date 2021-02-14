@@ -12,20 +12,27 @@ import { browserHistory } from 'react-router';
 import Button from '@material-ui/core/Button';
 import { getTask } from '../graphql/queries';
 import Table from '@material-ui/core/Table';
+import { useLocation } from 'react-router-dom';
 
+
+function GetUrl() {
+    return useLocation();
+}
 
 class TaskLayout extends Component {
 
+
    state = {
+       url: "",
        taskTitle: "",
        taskBody: "",
        taskcontent: ""
    }
 
-   getTask = async () => {
-     
-       const url = this.props.location.pathname;
-       const urlSplit = url.split("/")
+    getTask = async () => {
+
+        const url = GetUrl();
+       const urlSplit = url.pathname.split("/")
        const result = await API.graphql(graphqlOperation( getTask, {id: urlSplit.pop()}))
 
        this.setState ({

@@ -78,13 +78,6 @@ class DisplayTasks extends Component {
                             <Paper className="tasks" variant="outlined" elevation={2}>
 
                             <Table striped bordered hover key={task.id}>
-                            {/* <thead>
-                                <tr>
-                                <th>Task Name</th>
-                                <th>Date Created</th>
-                                <th>Describtion</th>
-                                </tr>
-                            </thead> */}
                             <tbody>
                                 <tr >
                                 {/*<td><Button component={RouterLink} to="/TaskLayout" edge="start" color="inherit" aria-label="menu" > {task.taskTitle } </Button></td>
@@ -102,12 +95,12 @@ class DisplayTasks extends Component {
                             </tbody>
                             </Table>
                             <span>
-                                    <CreateComment TaskId={task.id} />
-                                    { task.questions.items.length > 0 && <span style={{fontSize:"19px", color:"gray"}}>
-                                    Comments: </span> }
-                                        {
-                                            task.questions.items.map((question, index) => <CommentPost key={index} questionData={question}/>)
-                                    }
+                                <CreateComment TaskId={task.id} />
+                                { task.questions.items.length > 0 && <span style={{fontSize:"19px", color:"gray"}}>
+                                Comments: </span> }
+                                    {
+                                        task.questions.items.map((question, index) => <CommentPost key={index} questionData={question}/>)
+                                }
                                 </span>
                             </Paper>
                         )
@@ -116,51 +109,7 @@ class DisplayTasks extends Component {
         </div>
         )
     }
-    }
-/*
-            return tasks.map( (task) => {
-
-                return (
-
-                    <div>
-                    <Paper className="tasks" variant="outlined" elevation={2}>
-
-                    <Table striped bordered hover key={task.id}>
-                    <thead>
-                        <tr>
-                        <th>Task Name</th>
-                        <th>Date Created</th>
-                        <th>Describtion</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr >
-                        <td><Button component={RouterLink} to="/TaskLayout" edge="start" color="inherit" aria-label="menu" > {task.taskTitle } </Button></td>
-                        <td><time style={{fontStyle: "italic"}}>
-                            { " "}
-                                { new Date(task.createdAt).toDateString()}
-                        </time></td>
-                        <td><p> { task.taskBody } </p></td>
-                        <td><EditTask {...task} /></td>
-                        <td><Button component={RouterLink} to={`/TaskLayout/${task.id}`}>Test</Button></td>
-                        </tr>
-                    </tbody>
-                    </Table>
-                    <span>
-                            <CreateComment TaskId={task.id} />
-                            { task.questions.items.length > 0 && <span style={{fontSize:"19px", color:"gray"}}>
-                            Comments: </span>}
-                                {
-                                    task.questions.items.map((question, index) => <CommentPost key={index} questionData={question}/>)
-                            }
-                        </span>
-                    </Paper>
-
-                    </div>
-
-
-                )
-            }) */
+}
 
 const rowStyle={
     background: '#f4f4f4',

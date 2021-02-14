@@ -2,9 +2,6 @@ import React, { Component } from 'react'
 import { Auth, API, graphqlOperation } from 'aws-amplify'
 import { createQuestion } from '../graphql/mutations'
 
-
-
-
 class CreateComment extends Component {
 
     state = {
@@ -13,7 +10,7 @@ class CreateComment extends Component {
          qTitle: ""
     }
 
-    componentDidMount = async () => {
+    componentWillMount = async () => {
          await Auth.currentUserInfo()
           .then(user => {
                this.setState({
@@ -23,12 +20,19 @@ class CreateComment extends Component {
           })
     }
 
-    handleChangeContent = event => this.setState({ qTitle: event.target.value})
+    handleChangeContent = event => this.setState({ 
+
+         qTitle: event.target.value
+
+     })
+
     handleAddQuestion = async event => {
+
           event.preventDefault()
+          console.log("this props", this.props.TaskId)
 
           const input = {
-               questionTaskId: this.props.taskId,
+               questionTaskId: this.props.TaskId,
                qOwnerId: this.state.qOwnerId,
                qOwnerUsername: this.state.qOwnerUsername,
                qTitle: this.state.qTitle,
@@ -53,15 +57,15 @@ class CreateComment extends Component {
                      rows="3"
                      cols="40"
                      required
-                     placeholder="Add Question"
+                     placeholder="Add Comment"
                      value= {this.state.qTitle}
                      onChange={this.handleChangeContent}/>
 
                      <input
                       className="btn"
                       type="submit"
-                      style={{ fontSize: '19px'}}
-                      value="Add Question"/>
+                      style={{ fontSize: '19px', backgroundColor: "#ff9933"}}
+                      value="Add Comment"/>
 
             </form>
             </div>
@@ -69,4 +73,4 @@ class CreateComment extends Component {
         )
     }
 }
-export default CreateComment
+export default CreateComment;
