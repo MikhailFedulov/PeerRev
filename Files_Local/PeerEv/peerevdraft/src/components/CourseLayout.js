@@ -44,9 +44,9 @@ class CourseLayout extends Component {
 
                return (
                  <div>
-                   <Table id="Course-Layout-Header">
-                     <tr class="Row" id="Course-Name">Course Name: { this.state.courseTitle } </tr>
-                     <tr class="Row" id="Course-Description"> Description: { this.state.courseBody } </tr>
+                   <Table id="Header">
+                     <tr class="Row" id="Course-Task-Name">Course Name: { this.state.courseTitle } </tr>
+                     <tr class="Row" id="Course-Task-Description"> Description: { this.state.courseBody } </tr>
                    </Table>
                    <CreateTask courseId={this.state.courseId} />
                    <DisplayTasks />

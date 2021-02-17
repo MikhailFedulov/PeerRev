@@ -48,24 +48,29 @@ class CreateComment extends Component {
         return (
             <div>
 
-              <form className="add-comment"
-                onSubmit={this.handleAddQuestion}>
+              <form className="add-comment" onSubmit={this.handleAddQuestion} >
 
                   <textarea
                     type="text"
                      name="content"
                      rows="3"
-                     cols="40"
+                     cols="80"
                      required
-                     placeholder="Add Comment"
+                     placeholder="Type your question here"
                      value= {this.state.qTitle}
                      onChange={this.handleChangeContent}/>
-
-                     <input
-                      className="btn"
-                      type="submit"
-                      style={{ fontSize: '19px', backgroundColor: "#ff9933"}}
-                      value="Add Comment"/>
+               
+               <input
+                    className="btn"
+                    type="submit"
+                    style={{ 
+                         fontSize: '19px', 
+                         backgroundColor: "#ff9933",
+                         width: "30%",
+                         height: "50%"
+                    }}
+                    value="Add Question"/>
+                     
 
             </form>
             </div>

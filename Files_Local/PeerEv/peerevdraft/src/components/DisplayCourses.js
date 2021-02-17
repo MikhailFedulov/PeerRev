@@ -21,9 +21,7 @@ import CourseLayout from './CourseLayout'
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import { Link } from 'aws-amplify-react'
-
-
+import { Link } from 'aws-amplify-react';
 
 class DisplayCourses extends Component {
 
@@ -52,6 +50,15 @@ componentWillUnmount() {
    this.createCourseListener.unsubscribe()
 }
 
+courseLayout = (event, courseId) => {
+    let location = {};
+    location.pathname = "/CourseLayout/" + courseId;
+
+    return(
+        "<CourseLayout location={location} />"
+    );
+}
+
 getCourses = async () => {
         const result = await API.graphql(graphqlOperation(listCourses))
         this.setState({ courses: result.data.listCourses.items})
@@ -72,7 +79,7 @@ getCourses = async () => {
 
                <Table striped bordered hover key={course.id}>
                  <thead>
-                   <Link class="Row" id="Course-Title-Link" href={`/CourseLayout/${course.id}`}>Course Name: {course.courseTitle }</Link>
+                    <Link class="Row" id="Course-Title-Link" href={`/CourseLayout/${course.id}`}>Course Name: {course.courseTitle }</Link>
                  </thead>
                  <tbody> 
                    <tr class="Row" id="Course-Facilitator">
@@ -86,11 +93,9 @@ getCourses = async () => {
 
                </div>
 
-
            )
        })
    }
-
 }
 
 

@@ -12,8 +12,7 @@ class CommentPost extends Component {
          return (
                 <div className="comment">
                     <span style={{ fontStyle: "italic", color: "#0ca5e297"}}>
-                        {"Commment by: " } { qOwnerUsername}
-                        {" on "}
+                        {"Question by: " } { qOwnerUsername} {" on "}
                         <time style={{ fontStyle: "italic"}}>
                             { " "}
                             { new Date(createdAt).toDateString()}

@@ -12,12 +12,7 @@ import { browserHistory } from 'react-router';
 import Button from '@material-ui/core/Button';
 import { getTask } from '../graphql/queries';
 import Table from '@material-ui/core/Table';
-import { useLocation } from 'react-router-dom';
 
-
-function GetUrl() {
-    return useLocation();
-}
 
 class TaskLayout extends Component {
 
@@ -31,8 +26,8 @@ class TaskLayout extends Component {
 
     getTask = async () => {
 
-        const url = GetUrl();
-       const urlSplit = url.pathname.split("/")
+        const url = this.props.location.pathname;
+       const urlSplit = url.split("/")
        const result = await API.graphql(graphqlOperation( getTask, {id: urlSplit.pop()}))
 
        this.setState ({
@@ -50,15 +45,10 @@ class TaskLayout extends Component {
 
        return (
             <div>
-                <Table id="Task-Layout-Header">
-                     <tr>Task Title: { this.state.taskTitle } </tr>
-                     <tr>
-                       <td>Task Body: { this.state.taskBody } </td>
-                       <td>Task Content: { this.state.taskContent }</td>
-                     </tr>
-
-                   </Table>
-
+                <Table id="Header">
+                    <tr class="Row" id="Course-Task-Name">Task Name: { this.state.taskTitle } </tr>
+                    <tr class="Row" id="Course-Task-Description"> Description: { this.state.taskBody } </tr>
+                </Table>
 
             </div>
 

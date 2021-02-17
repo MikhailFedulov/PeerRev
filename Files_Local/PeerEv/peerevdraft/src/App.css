@@ -71,7 +71,7 @@ input[type=submit]:hover {
   margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
-  width: 60%;
+  width: 51%;
   box-shadow: 1px 1px 9px 7px #36181833;
 
   padding: .5rem;
@@ -315,13 +315,13 @@ ul.no-bullets {
     align-content: center;
 }
 
-#Course-Title-Link {
+#Course-Title-Link, #Task-Title-Link {
 	color: red;
 	text-decoration: none;
 	font-size: 20px;
 }
 
-#Course-Title-Link:hover {
+#Course-Title-Link:hover, #Task-Title-Link:hover {
 	color:#023e8a;
 	text-decoration: underline;
 }
@@ -335,7 +335,7 @@ ul.no-bullets {
 	font-size: 16px;
 }
 
-#Course-Layout-Header {
+#Header {
     display: flex;
     flex-direction: column;
     margin-top: 30px;
@@ -347,12 +347,12 @@ ul.no-bullets {
     padding: 1rem;
 }
 
-#Course-Name {
+#Course-Task-Name {
     color: black;
 	font-size: 24px;
 }
 
-#Course-Description{
+#Course-Task-Description{
     color: rgb(104, 103, 103);
 }
 
@@ -371,4 +371,10 @@ ul.no-bullets {
 
 #add-post {
 	display: none;
+}
+
+#Home-Page{
+	text-align: center;
+	margin: 40px;
+
 }

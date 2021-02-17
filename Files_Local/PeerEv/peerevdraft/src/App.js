@@ -18,7 +18,7 @@ import CourseDash from './components/CourseDash'
 
 import CourseLayouttest from './components/CourseLayouttest'
 import TaskLayout from './components/TaskLayout'
-
+import HomePage from './components/HomePage'
 
 function App() {
  return (
@@ -29,8 +29,8 @@ function App() {
            <Route path={"/CreateCourse"} exact component={CreateCourse} />
            <Route path={"/DisplayCourses"} component={DisplayCourses} />
            <Route path={"/Home"} component={Home} />
-           //<Route exact path={"/CourseLayout"} component={CourseLayout} />
-           //<Route path={"/CourseLayout/:course.id"} render={props => <CourseLayout {...props} /> } />
+           <Route exact path={"/CourseLayout"} component={CourseLayout} />
+           <Route path={"/CourseLayout/:course.id"} render={props => <CourseLayout {...props} /> } />
            <Route path={"/CourseLayout/:course.id"} component={CourseLayout} />
            <Route path={"/Checkout"} component={Checkout} />
            <Route path={"/DisplayTasks"} component={DisplayTasks} />
@@ -41,6 +41,7 @@ function App() {
            <Route path={"/CourseLayouttest"} component={CourseLayouttest} />
            <Route path={"/CourseDash"} component={CourseDash} />
            <Route path={"/TaskLayout"} component={TaskLayout} />
+           <Route exact component={HomePage} />
        </Switch>
 
    </Router>

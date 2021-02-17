@@ -24,6 +24,7 @@ import CommentPost from './CommentPost'
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
+import { Link } from 'aws-amplify-react';
 
 
 
@@ -78,28 +79,22 @@ class DisplayTasks extends Component {
                             <Paper className="tasks" variant="outlined" elevation={2}>
 
                             <Table striped bordered hover key={task.id}>
-                            <tbody>
-                                <tr >
-                                {/*<td><Button component={RouterLink} to="/TaskLayout" edge="start" color="inherit" aria-label="menu" > {task.taskTitle } </Button></td>
-                                <td><time style={{fontStyle: "italic"}}>
-                                    { " "}
-                                        { new Date(task.createdAt).toDateString()}
-                                </time></td>
-                                <td><p> { task.taskBody } </p></td>
-                                <td><EditTask {...task} /></td>
-                                <a href={`/TaskLayout/${task.id}`}>  {task.taskTitle }</a> */}
-                                <td><a href={`/TaskLayout/${task.id}`}>{ task.taskTitle }</a></td>
-                                {/* <td><Button component={RouterLink} to={`/TaskLayout/${task.id}`}>{ task.taskTitle }</Button></td> */}
-                                <TaskLayout />
+                            <tbody id="Task-Information">
+                                <tr><Link id="Task-Title-Link" href={`/TaskLayout/${task.id}`}>Task Title: {task.taskTitle }</Link></tr>
+                                <tr>
+                                    <td id="Task-Body"><p>Description: { task.taskBody }</p></td>
+                                    <td id="Task-Edit" style= {{
+                                        textAlign: "right",
+                                        transform: "translateX(-10px)"
+                                    }}><EditTask {...task} /></td>
                                 </tr>
                             </tbody>
                             </Table>
                             <span>
                                 <CreateComment TaskId={task.id} />
-                                { task.questions.items.length > 0 && <span style={{fontSize:"19px", color:"gray"}}>
-                                Comments: </span> }
-                                    {
-                                        task.questions.items.map((question, index) => <CommentPost key={index} questionData={question}/>)
+                                { task.questions.items.length > 0}
+                                {
+                                    task.questions.items.map((question, index) => <CommentPost key={index} questionData={question}/>)
                                 }
                                 </span>
                             </Paper>
