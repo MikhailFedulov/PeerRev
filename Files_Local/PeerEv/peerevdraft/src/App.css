@@ -347,6 +347,19 @@ ul.no-bullets {
     padding: 1rem;
 }
 
+#FAQHeader {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 52%;
+    text-align: center;
+    /*box-shadow: 1px 1px 9px 7px #36181833; */
+    border-bottom: rgba(87, 87, 87, 0.774) solid 2px;
+    padding: 1rem;
+}
+
 #Course-Task-Name {
     color: black;
 	font-size: 24px;

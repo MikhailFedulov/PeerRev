@@ -21,6 +21,7 @@ import TaskLayout from './TaskLayout'
 import CreateComment from './CreateComment'
 import CourseDash from './CourseDash'
 import CommentPost from './CommentPost'
+import SingleTaskLayout from './SingleTaskLayout'
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
@@ -80,7 +81,7 @@ class DisplayTasks extends Component {
 
                             <Table striped bordered hover key={task.id}>
                             <tbody id="Task-Information">
-                                <tr><Link id="Task-Title-Link" href={`/TaskLayout/${task.id}`}>Task Title: {task.taskTitle }</Link></tr>
+                                <tr><Link id="Task-Title-Link" href={`/SingleTaskLayout/${task.id}`}>Task Title: {task.taskTitle }</Link></tr>
                                 <tr>
                                     <td id="Task-Body"><p>Description: { task.taskBody }</p></td>
                                     <td id="Task-Edit" style= {{

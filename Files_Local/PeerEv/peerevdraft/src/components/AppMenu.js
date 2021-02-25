@@ -11,8 +11,11 @@ import { AmplifySignOut} from '@aws-amplify/ui-react';
 import CreateCourse from './CreateCourse'
 import CreateTask from './CreateTask'
 import DisplayCourses from './DisplayCourses'
+import InfoLayout from './InfoLayout'
+import ProfileLayout from './ProfileLayout'
 import Home from './Home'
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import HelpRoundedIcon from '@material-ui/icons/HelpRounded';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 //import {Switch, Link, Route, BrowserRouter as Router} from 'react-router-dom';
 import { Link as RouterLink } from 'react-router-dom';
@@ -55,10 +58,10 @@ class AppMenu extends Component {
                      <Button component={RouterLink} to="/CreateCourse" edge="start" color="inherit" aria-label="menu">
                          <AddCircleOutlineIcon />
                      </Button>
-
+                     {/*
                      <Button component={RouterLink} to="/CreateTask" edge="start" color="inherit" aria-label="menu">
                          <AddCircleOutlineIcon />
-                     </Button>
+                     </Button> */}
 
 
 
@@ -67,7 +70,10 @@ class AppMenu extends Component {
 
                    <Grid item>
                      <div>
-                     <IconButton edge="start" color="inherit" aria-label="menu">
+                     <IconButton component={RouterLink} to="/InfoLayout" edge="start" color="inherit" aria-label="menu">
+                       <HelpRoundedIcon />
+                     </IconButton>
+                     <IconButton component={RouterLink} to="/ProfileLayout" edge="start" color="inherit" aria-label="menu">
                        <AccountCircle />
                      </IconButton>
                        <Button raised color="accent">

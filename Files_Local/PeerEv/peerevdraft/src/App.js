@@ -19,6 +19,9 @@ import CourseDash from './components/CourseDash'
 import CourseLayouttest from './components/CourseLayouttest'
 import TaskLayout from './components/TaskLayout'
 import HomePage from './components/HomePage'
+import SingleTaskLayout from './components/SingleTaskLayout'
+import InfoLayout from './components/InfoLayout'
+import ProfileLayout from './components/ProfileLayout'
 
 function App() {
  return (
@@ -41,6 +44,9 @@ function App() {
            <Route path={"/CourseLayouttest"} component={CourseLayouttest} />
            <Route path={"/CourseDash"} component={CourseDash} />
            <Route path={"/TaskLayout"} component={TaskLayout} />
+           <Route path={"/SingleTaskLayout"} component={SingleTaskLayout} />
+           <Route path={"/InfoLayout"} component={InfoLayout} />
+           <Route path={"/ProfileLayout"} component={ProfileLayout} />
            <Route exact component={HomePage} />
        </Switch>
 

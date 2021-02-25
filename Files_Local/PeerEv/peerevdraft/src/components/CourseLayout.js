@@ -26,22 +26,26 @@ class CourseLayout extends Component {
 
            const url = this.props.location.pathname;
            const urlSplit = url.split("/")
-           const result = await API.graphql(graphqlOperation(getCourse, { id: urlSplit.pop()}))
+           const result = await API.graphql(graphqlOperation(getCourse, { id: urlSplit[urlSplit.length -1 ]}))
+
 
            this.setState ({
-             courseId: urlSplit[2],
+             courseId: urlSplit.[urlSplit.length -1 ],
              courseTitle: result.data.getCourse.courseTitle,
              courseBody: result.data.getCourse.courseBody,
              numberofstudents: result.data.getCourse.numberofstudents
 
+
            })
+
+
+
 
            }
 
            render() {
 
              this.getCourses();
-
                return (
                  <div>
                    <Table id="Header">
